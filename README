@@ -1,0 +1,17 @@
+#-----------------------------------------------------------------------
+# To build and Run the program
+
+./mvnw package && java -jar target/rest-service-0.0.1-SNAPSHOT.jar
+
+http://localhost:8080/service
+
+# To test API not found
+./mvnw test
+#-----------------------------------------------------------------------
+
+# Assume the third party API being called from src.main.java.com.api.restservice.service.APIServiceImpl
+# Assume the third party API returns Json Object defined in com.api.restservice.model.Value
+# When running Spring boot app at http://localhost:8080/service,
+# if API fetching successfully, com.api.restservice.model.Quote returned with API result at Quote.vaule and Quote.type=Success
+# if API fetching failed, com.api.restservice.model.Quote returned with Quote.type=Failure and Quote.error with error details
+# Automated test API for 404 not found, at src.test.java.com.api.restservice.service.APIServiceImplTest
